@@ -22,8 +22,8 @@ body,
   background: #060105;
 }
 .App {
-  width: 60rem;
-  height: 80rem;
+  width: 28%;
+  aspect-ratio: 4/5;
   padding: 2rem;
 
   display: flex;
