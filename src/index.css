@@ -1,13 +1,191 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&family=League+Spartan:wght@100..900&family=Nixie+One&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap");
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: monospace;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #060105;
+}
+.App {
+  width: 60rem;
+  height: 80rem;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  border-radius: 5rem;
+  box-shadow: 0 0 0 1px transparent;
+  transition: all 0.2s ease;
+}
+.screen {
+  position: relative;
+
+  height: 24%;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  overflow-y: hidden;
+
+  border-radius: inherit;
+  border: 1px solid white;
+  color: white;
+}
+.screen button {
+  font-size: 1.25rem;
+  padding: 0.25rem 0.75rem;
+
+  position: absolute;
+  top: 1.75rem;
+  left: 1.75rem;
+}
+.screen-value {
+  font-size: 8rem;
+  overflow-x: auto;
+}
+::-webkit-scrollbar {
+  height: 2rem;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 1px solid white;
+  border-radius: 50rem;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input-container {
+  flex: 1;
+  padding: 1rem 0;
+  gap: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.numbers {
+  grid-column: span 3;
+  grid-row: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "item7 item8 item9"
+    "item4 item5 item6"
+    "item1 item2 item3";
+}
+.numbers button:nth-child(1) {
+  grid-area: item1;
+}
+.numbers button:nth-child(2) {
+  grid-area: item2;
+}
+.numbers button:nth-child(3) {
+  grid-area: item3;
+}
+.numbers button:nth-child(4) {
+  grid-area: item4;
+}
+.numbers button:nth-child(5) {
+  grid-area: item5;
+}
+.numbers button:nth-child(6) {
+  grid-area: item6;
+}
+.numbers button:nth-child(7) {
+  grid-area: item7;
+}
+.numbers button:nth-child(8) {
+  grid-area: item8;
+}
+.numbers button:nth-child(9) {
+  grid-area: item9;
+}
+.operators {
+  grid-column: 4/5;
+  grid-row: 1 / span 4;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.operators > * {
+  flex: 1;
+}
+.bottom {
+  grid-row: 4/5;
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.buttons-container {
+  gap: inherit;
+}
+
+button {
+  all: unset;
+
+  font-size: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4rem;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+
+  user-select: none;
+
+  transition: scale 0.2s ease;
+}
+button:hover {
+  scale: 1.1;
+}
+button:active {
+  scale: 0.9;
+}
+
+.App:hover {
+  box-shadow: 0 0 0 1px white;
+}
+.screen:hover {
+  border: 1px solid #4bfd34;
+  box-shadow: 0 0 0.5rem #4bfd34;
+}
+.numbers button:hover {
+  border: 1px solid #ff9635;
+  box-shadow: 0 0 0.5rem #ff9635;
+}
+.operators button:hover {
+  border: 1px solid #f23da5;
+  box-shadow: 0 0 0.5rem #f23da5;
+}
+.bottom button:hover {
+  border: 1px solid #02fee4;
+  box-shadow: 0 0 0.5rem #02fee4;
+}
+.input-container > *:hover :not(button:hover) {
+  filter: blur(2px);
 }
